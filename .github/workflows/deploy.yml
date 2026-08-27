@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -18,14 +18,12 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
-          enablement: true  # <-- to samo włączy Pages
-      
-      # ... tutaj kroki build Twojego projektu ...
-      
-      - name: Upload
+          enablement: true 
+          
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'  # zmień na swój folder (./build, ./out, .)
+          path: './dist'
       
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
